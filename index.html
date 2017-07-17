@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        // var xhr = new XMLHttpRequest();//创造出来一台手机
+        // xhr.open("GET",'./a.json');//拨号
+        // //打电话
+        // xhr.send();
+        // xhr.onreadystatechange = function(){
+        //     //只有请求状态是4,状态码是200
+        //     if(xhr.readyState === 4 && xhr.status === 200){
+        //         console.log(JSON.parse(xhr.responseText));//JSON.parse
+        //     }
+        // }
+
+
+
+        // $.ajax({
+        //     url:'./a.json',
+        //     type:'GET',
+        //     // dataType:'json',
+        //     success:function(data){
+        //         console.log(data);
+        //     }
+        // });
+
+
+        $.get('./a.json',function(data){
+            console.log(data);
+        },'json');
+
+        $.getJSON('./a.json',function(data){
+            console.log(data);
+        });
+
+
+        // $.getJSON('./a.json').then(function(data){
+        //     console.log(data);
+        // });
+
+
+        // fetch('./a.json',{method:'get'}).then(function(response){
+        //     response.json().then(function(data){
+        //         console.log(data);
+        //     })
+        // });
+
+
+        // 跨域：域名、端口、协议只要一个不一样，就是跨域
+
+
+        // file://
+        // http://
+
+        // http://localhost:80
+        // http://localhost:8080
+
+        // http://baidu.com
+        // http://sina.com.cn
+
+        // $.ajax({
+        //     url:'http://localhost/jsonp.php',
+        //     type:'GET',
+        //     dataType:'jsonp',
+        //     success:function(data){
+        //         console.log(data);
+        //     }
+        // });
+
+        //如果是jsonp，只需要多一个?callback=?
+        $.getJSON('http://localhost/jsonp.php?callback=?',function(data){
+            console.log(data);
+        });
+
+        $.getJSON('http://localhost/jsonp.php?callback=?',function(data){
+            console.log(data);
+        });
+
+        //用原生js来实现jsonp --> jquery内部定义了一个方法名叫jQuery32109351228583845106_1493898132111的函数
+
+        // function jQuery32103793485027164136_1493898377142(data){
+        //     console.log(data);
+        // }
+
+        // jQuery32109351228583845106_1493898132111({"school":"heima","subject":"frontend"})
+
+    </script>
+</body>
+</html>
